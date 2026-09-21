@@ -1,0 +1,175 @@
+[
+  {
+    "id": "8e1a7c8d-48dd-4f09-901b-46b1eca718f9",
+    "order_number": 2037,
+    "customer_name": "ABCD",
+    "customer_phone": "7439303013",
+    "items": [
+      {
+        "name": "Veg Cheese Pizza",
+        "itemId": "piz-1",
+        "variant": "veg",
+        "quantity": 1,
+        "unitPrice": 149,
+        "totalPrice": 149
+      },
+      {
+        "name": "Veg Cheese Maggi",
+        "itemId": "mag-2",
+        "variant": "veg",
+        "quantity": 2,
+        "unitPrice": 89,
+        "totalPrice": 178
+      }
+    ],
+    "subtotal": 327,
+    "total": 327,
+    "status": "pending",
+    "payment_status": "unpaid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": null,
+    "source": "Takeaway / Parcel",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_ord_1789847011386_zmy73mb",
+    "created_at": "2026-09-19T19:43:34.778756+00:00",
+    "updated_at": "2026-09-19T19:43:34.778756+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "fe22520b-0406-45f8-8be0-ddf4364ed358",
+    "order_number": 8738,
+    "customer_name": "Test Multi-Item User",
+    "customer_phone": "9876543210",
+    "items": [
+      {
+        "name": "Veg Cheese Pizza",
+        "itemId": "piz-1",
+        "variant": null,
+        "quantity": 2,
+        "unitPrice": 149,
+        "totalPrice": 298
+      },
+      {
+        "name": "Veg Burger",
+        "itemId": "bur-1",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 79,
+        "totalPrice": 79
+      }
+    ],
+    "subtotal": 377,
+    "total": 377,
+    "status": "pending",
+    "payment_status": "unpaid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": null,
+    "source": "Home Delivery",
+    "notes": "Delivery Address: Station Road, Panskura",
+    "delivery_address": "Station Road, Panskura",
+    "delivery_coordinates": null,
+    "idempotency_key": null,
+    "created_at": "2026-09-19T19:36:38.499456+00:00",
+    "updated_at": "2026-09-19T19:36:38.499456+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "3d0742d3-f239-47a8-96c1-135a3e45f74b",
+    "order_number": 9734,
+    "customer_name": "Table 4 Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "White Sauce Pasta (Alfredo Style)",
+        "itemId": "pas-1",
+        "variant": "non-veg",
+        "quantity": 2,
+        "unitPrice": 149,
+        "totalPrice": 298
+      },
+      {
+        "name": "Red Sauce Pasta (Arrabbiata Style)",
+        "itemId": "pas-2",
+        "variant": "non-veg",
+        "quantity": 1,
+        "unitPrice": 149,
+        "totalPrice": 149
+      }
+    ],
+    "subtotal": 447,
+    "total": 447,
+    "status": "completed",
+    "payment_status": "unpaid",
+    "payment_mode": "cash",
+    "paid_at": null,
+    "upi_transaction_id": null,
+    "source": "Dine-In (Table 4)",
+    "notes": null,
+    "idempotency_key": "sg_pos_1789751837541_1e9nm",
+    "created_at": "2026-09-18T17:17:18.769285+00:00",
+    "updated_at": "2026-09-19T11:59:31.308701+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "c20a4423-3e11-482c-b841-884423e8f192",
+    "order_number": 4423,
+    "customer_name": "Table 3 Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "Veg Maggi",
+        "itemId": "mag-1",
+        "variant": null,
+        "quantity": 2,
+        "unitPrice": 69,
+        "totalPrice": 138
+      }
+    ],
+    "subtotal": 138,
+    "total": 138,
+    "status": "completed",
+    "payment_status": "unpaid",
+    "payment_mode": "upi",
+    "paid_at": null,
+    "upi_transaction_id": null,
+    "source": "Dine-In (Table 3)",
+    "notes": null,
+    "idempotency_key": "sg_pos_1789751000000_4423m",
+    "created_at": "2026-09-18T16:59:49.12619+00:00",
+    "updated_at": "2026-09-19T11:59:31.604795+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "e90d4faf-a74c-46d1-85b1-9ec0bbc7f1af",
+    "order_number": 3333,
+    "customer_name": "ABCD",
+    "customer_phone": "7439303013",
+    "items": [
+      {
+        "name": "Veg King Kong Cheese Burger",
+        "itemId": "bur-7",
+        "variant": null,
+        "quantity": 2,
+        "unitPrice": 129,
+        "totalPrice": 258
+      }
+    ],
+    "subtotal": 258,
+    "total": 258,
+    "status": "completed",
+    "payment_status": "unpaid",
+    "payment_mode": "upi",
+    "paid_at": null,
+    "upi_transaction_id": null,
+    "source": "website_order",
+    "notes": null,
+    "idempotency_key": "sg_ord_1789744832269_a8693ug",
+    "created_at": "2026-09-18T15:20:35.433723+00:00",
+    "updated_at": "2026-09-19T11:53:01.836597+00:00",
+    "customer_id": null
+  }
+]

@@ -21,12 +21,47 @@ import {
   BellRing,
   TrendingUp
 } from 'lucide-react';
+import AdminContentLoader from '@/components/AdminContentLoader';
 
 function AdminLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
+  const [activePath, setActivePath] = useState(pathname);
+  const [showContentLoader, setShowContentLoader] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [pendingOrdersCount, setPendingOrdersCount] = useState(0);
+
+  // Synchronize optimistic activePath whenever actual route pathname changes
+  useEffect(() => {
+    setActivePath(pathname);
+    setShowContentLoader(false);
+  }, [pathname]);
+
+  // Grace threshold: only show heavy skeleton if transition takes > 300ms
+  // Eliminates useless loading screen flash on fast/cached section switches
+  useEffect(() => {
+    if (activePath !== pathname) {
+      const thresholdTimer = setTimeout(() => {
+        setShowContentLoader(true);
+      }, 300);
+      return () => clearTimeout(thresholdTimer);
+    } else {
+      setShowContentLoader(false);
+    }
+  }, [activePath, pathname]);
+
+  // Safety fallback: if navigation takes longer than 8 seconds, reset activePath
+  useEffect(() => {
+    if (activePath !== pathname) {
+      const timer = setTimeout(() => {
+        setActivePath(pathname);
+        setShowContentLoader(false);
+      }, 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [activePath, pathname]);
+
+  const isNavigating = activePath !== pathname;
   const {
     soundEnabled,
     toggleSound,
@@ -139,7 +174,11 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
           <div className="space-y-6">
             {/* Brand */}
             <div>
-              <Link href="/admin" className="flex items-center space-x-2.5">
+              <Link
+                href="/admin"
+                onClick={() => setActivePath('/admin')}
+                className="flex items-center space-x-2.5"
+              >
                 <div className="w-8 h-8 rounded-xl bg-chili-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-chili-600/30">
                   SG
                 </div>
@@ -158,12 +197,12 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
             <nav className="space-y-1.5" aria-label="Admin Navigation">
               {navItems.map((item) => {
                 const Icon = item.icon;
-                const isActive = pathname === item.href;
+                const isActive = activePath === item.href;
                 return (
                   <Link
                     key={item.href}
                     href={item.href}
-                    prefetch={false}
+                    onClick={() => setActivePath(item.href)}
                     className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                       isActive
                         ? 'bg-chili-600 text-white shadow-md shadow-chili-600/25'
@@ -255,7 +294,11 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
 
         {/* Mobile Header Bar */}
         <header className="md:hidden sticky top-0 z-30 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 py-3 flex items-center justify-between flex-shrink-0">
-          <Link href="/admin" className="flex items-center space-x-2">
+          <Link
+            href="/admin"
+            onClick={() => setActivePath('/admin')}
+            className="flex items-center space-x-2"
+          >
             <div className="w-7 h-7 rounded-lg bg-chili-600 flex items-center justify-center text-white font-bold text-xs">
               SG
             </div>
@@ -292,13 +335,15 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
           <div className="md:hidden bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-4 py-3 space-y-2 flex-shrink-0">
             {navItems.map((item) => {
               const Icon = item.icon;
-              const isActive = pathname === item.href;
+              const isActive = activePath === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  prefetch={false}
-                  onClick={() => setMobileNavOpen(false)}
+                  onClick={() => {
+                    setActivePath(item.href);
+                    setMobileNavOpen(false);
+                  }}
                   className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold ${
                     isActive
                       ? 'bg-chili-600 text-white'
@@ -330,6 +375,13 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
 
         {/* Main Content Area */}
         <main className="flex-1 h-full overflow-y-auto p-4 sm:p-6 lg:p-8 max-w-7xl w-full relative">
+          {/* Subtle Top Accent Progress Line when navigating */}
+          {isNavigating && (
+            <div className="absolute top-0 left-0 right-0 h-1 z-40 overflow-hidden pointer-events-none">
+              <div className="w-full h-full bg-gradient-to-r from-chili-500 via-rose-500 to-amber-500 animate-pulse" />
+            </div>
+          )}
+
           {/* Global Realtime Order Alert Banner */}
           {activeOrderAlert && (
             <div className="mb-6 animate-in slide-in-from-top-4 duration-300">
@@ -362,7 +414,10 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="flex items-center space-x-2.5 w-full sm:w-auto justify-end">
                   <Link
                     href="/admin/orders"
-                    onClick={dismissOrderAlert}
+                    onClick={() => {
+                      dismissOrderAlert();
+                      setActivePath('/admin/orders');
+                    }}
                     className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-chili-700 hover:bg-gray-100 shadow-md transition-all active:scale-95"
                   >
                     Open Orders Console
@@ -380,7 +435,13 @@ function AdminLayoutInner({ children }: { children: React.ReactNode }) {
             </div>
           )}
 
-          {children}
+          {showContentLoader ? (
+            <AdminContentLoader activePath={activePath} />
+          ) : (
+            <div className={`transition-opacity duration-150 ${isNavigating ? 'opacity-80' : 'opacity-100'}`}>
+              {children}
+            </div>
+          )}
         </main>
       </div>
   );

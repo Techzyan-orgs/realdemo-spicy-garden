@@ -1,5 +1,145 @@
 [
   {
+    "id": "3620ad99-6609-47eb-abf7-afc45e109d5f",
+    "order_number": 1086,
+    "customer_name": "Walk-in Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "Red Sauce Pasta (Arrabbiata Style)",
+        "itemId": "pas-2",
+        "variant": "non-veg",
+        "quantity": 2,
+        "unitPrice": 149,
+        "totalPrice": 298
+      }
+    ],
+    "subtotal": 298,
+    "total": 298,
+    "status": "confirmed",
+    "payment_status": "paid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": "2026-09-25T18:41:39.666+00:00",
+    "source": "Counter POS",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_pos_1790361698439_sckwz",
+    "created_at": "2026-09-25T18:41:39.719028+00:00",
+    "updated_at": "2026-09-25T18:41:39.719028+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "5226a2a2-6221-42ba-9970-dc93b45cb11f",
+    "order_number": 1017,
+    "customer_name": "Table 4 Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "Veg Cheese Sandwich",
+        "itemId": "san-2",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 79,
+        "totalPrice": 79
+      },
+      {
+        "name": "Egg Cheese Sandwich",
+        "itemId": "san-4",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 89,
+        "totalPrice": 89
+      }
+    ],
+    "subtotal": 168,
+    "total": 168,
+    "status": "ready",
+    "payment_status": "paid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": "2026-09-25T17:28:57.98+00:00",
+    "source": "Dine-In (Table 4)",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_pos_1790357337293_ajo32",
+    "created_at": "2026-09-25T17:28:58.096637+00:00",
+    "updated_at": "2026-09-25T18:41:56.858Z",
+    "customer_id": null
+  },
+  {
+    "id": "7c3f96e1-8f0c-4687-88e8-23e70d77c495",
+    "order_number": 4127,
+    "customer_name": "Table 1 Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "Veg Cheese Maggi",
+        "itemId": "mag-2",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 89,
+        "totalPrice": 89
+      }
+    ],
+    "subtotal": 89,
+    "total": 89,
+    "status": "completed",
+    "payment_status": "unpaid",
+    "payment_mode": "upi",
+    "upi_transaction_id": null,
+    "paid_at": null,
+    "source": "Dine-In (Table 1)",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_pos_1790357233518_4wjdc",
+    "created_at": "2026-09-25T17:27:14.494444+00:00",
+    "updated_at": "2026-09-25T17:28:19.299774+00:00",
+    "customer_id": null
+  },
+  {
+    "id": "b5420bc4-8ef9-4b77-b427-b8b22faf0009",
+    "order_number": 9064,
+    "customer_name": "Table 1 Guest",
+    "customer_phone": "0000000000",
+    "items": [
+      {
+        "name": "White Sauce Pasta (Alfredo Style)",
+        "itemId": "pas-1",
+        "variant": "veg",
+        "quantity": 2,
+        "unitPrice": 129,
+        "totalPrice": 258
+      },
+      {
+        "name": "Golden Crispy Fried Chicken Tenders",
+        "itemId": "chn-2",
+        "variant": null,
+        "quantity": 1,
+        "unitPrice": 149,
+        "totalPrice": 149
+      }
+    ],
+    "subtotal": 407,
+    "total": 407,
+    "status": "ready",
+    "payment_status": "paid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": "2026-09-25T17:26:24.696+00:00",
+    "source": "Dine-In (Table 1)",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_pos_1790357183567_76o0z",
+    "created_at": "2026-09-25T17:26:24.854783+00:00",
+    "updated_at": "2026-09-25T18:42:14.86785+00:00",
+    "customer_id": null
+  },
+  {
     "id": "f59f452f-b309-4522-8fb0-14f732e5ce4c",
     "order_number": 7995,
     "customer_name": "Rahul Das",
@@ -163,15 +303,15 @@
     "subtotal": 138,
     "total": 138,
     "status": "completed",
-    "payment_status": "unpaid",
+    "payment_status": "paid",
     "payment_mode": "upi",
-    "paid_at": null,
+    "paid_at": "2026-09-25T17:25:06.518+00:00",
     "upi_transaction_id": null,
     "source": "Dine-In (Table 3)",
     "notes": null,
     "idempotency_key": "sg_pos_1789751000000_4423m",
-    "created_at": "2026-09-18T16:59:49.12619+00:00",
-    "updated_at": "2026-09-19T11:59:31.604795+00:00",
+    "created_at": "2026-09-18T16:45:00+00:00",
+    "updated_at": "2026-09-25T17:25:07.14394+00:00",
     "customer_id": null
   },
   {

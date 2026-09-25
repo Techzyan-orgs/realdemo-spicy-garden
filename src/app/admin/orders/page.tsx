@@ -42,7 +42,6 @@ function AdminOrdersContent() {
   const {
     soundEnabled,
     setSoundEnabled,
-    triggerChime,
     activeOrderAlert,
     recentOrders,
   } = useAudioAlert();
@@ -190,7 +189,6 @@ function AdminOrdersContent() {
 
     const addNewOrder = (newOrder: DbOrder) => {
       if (!newOrder || !newOrder.id) return;
-      triggerChime();
       setOrders((prev) => {
         const next = [newOrder, ...prev.filter((o) => o.id !== newOrder.id)];
         if (typeof window !== 'undefined') {
@@ -293,7 +291,7 @@ function AdminOrdersContent() {
         window.removeEventListener('sg_new_order', handleCustomOrder);
       }
     };
-  }, [fetchOrders, triggerChime]);
+  }, [fetchOrders]);
 
   const updateOrderStatus = async (orderId: string, nextStatus: string) => {
     setIsUpdating(orderId);

@@ -45,6 +45,7 @@ export function AudioAlertProvider({ children }: { children: React.ReactNode }) 
   const [recentOrders, setRecentOrders] = useState<GlobalOrderNotification[]>([]);
   const recentAlertIds = useRef<Set<string>>(new Set());
   const dismissTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastChimeTimeRef = useRef<number>(0);
 
   // Restore sound preference and cached orders from localStorage
   useEffect(() => {
@@ -82,12 +83,19 @@ export function AudioAlertProvider({ children }: { children: React.ReactNode }) 
     }
     if (nextState) {
       getAudioContext();
+      lastChimeTimeRef.current = Date.now();
       playOrderChime();
     }
   };
 
   const triggerChime = useCallback(() => {
+    const now = Date.now();
+    // 1.2s cooldown prevents duplicate audio playback on concurrent events
+    if (now - lastChimeTimeRef.current < 1200) {
+      return;
+    }
     if (soundEnabled) {
+      lastChimeTimeRef.current = now;
       playOrderChime();
     }
   }, [soundEnabled]);

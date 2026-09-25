@@ -1,5 +1,36 @@
 [
   {
+    "id": "f59f452f-b309-4522-8fb0-14f732e5ce4c",
+    "order_number": 7995,
+    "customer_name": "Rahul Das",
+    "customer_phone": "7439303013",
+    "items": [
+      {
+        "name": "Cheese Burst Pizza",
+        "itemId": "piz-5",
+        "variant": "non-veg",
+        "quantity": 2,
+        "unitPrice": 259,
+        "totalPrice": 518
+      }
+    ],
+    "subtotal": 518,
+    "total": 518,
+    "status": "pending",
+    "payment_status": "unpaid",
+    "payment_mode": "cash",
+    "upi_transaction_id": null,
+    "paid_at": null,
+    "source": "Takeaway / Parcel",
+    "notes": null,
+    "delivery_address": null,
+    "delivery_coordinates": null,
+    "idempotency_key": "sg_ord_1790268782939_jtsfx6n",
+    "created_at": "2026-09-24T16:53:04.539962+00:00",
+    "updated_at": "2026-09-24T16:53:04.539962+00:00",
+    "customer_id": null
+  },
+  {
     "id": "8e1a7c8d-48dd-4f09-901b-46b1eca718f9",
     "order_number": 2037,
     "customer_name": "ABCD",
@@ -161,15 +192,15 @@
     "subtotal": 258,
     "total": 258,
     "status": "completed",
-    "payment_status": "unpaid",
-    "payment_mode": "upi",
-    "paid_at": null,
+    "payment_status": "paid",
+    "payment_mode": "cash",
+    "paid_at": "2026-09-25T16:40:45.355+00:00",
     "upi_transaction_id": null,
     "source": "website_order",
     "notes": null,
     "idempotency_key": "sg_ord_1789744832269_a8693ug",
     "created_at": "2026-09-18T15:20:35.433723+00:00",
-    "updated_at": "2026-09-19T11:53:01.836597+00:00",
+    "updated_at": "2026-09-25T16:40:45.981135+00:00",
     "customer_id": null
   }
 ]

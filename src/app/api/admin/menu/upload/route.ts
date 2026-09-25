@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     const filename = `dish_${Date.now()}_${Math.random().toString(36).substring(2, 8)}.${ext}`;
 
     // 1. Try Supabase Storage first if configured
-    const supabaseServer = getSupabaseServerClient();
+    const supabaseServer = await getSupabaseServerClient();
     const supabaseAdmin = getSupabaseAdminClient();
 
     if (supabaseServer && supabaseAdmin) {

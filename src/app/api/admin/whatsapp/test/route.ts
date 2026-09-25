@@ -4,7 +4,7 @@ import { sendWhatsAppTextMessage, isWhatsAppConfigured } from '@/lib/whatsapp';
 
 export async function POST(req: NextRequest) {
   try {
-    const supabase = getSupabaseServerClient();
+    const supabase = await getSupabaseServerClient();
     if (!supabase) {
       return NextResponse.json({ error: 'Supabase unconfigured' }, { status: 500 });
     }
